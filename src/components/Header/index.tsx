@@ -1,39 +1,21 @@
-import React, { useState, useEffect } from "react";
-import './style.css';
+import React from "react";
+import { ButtonHeader, Headers, Topcs } from "./style"
+import { AiOutlineShoppingCart } from 'react-icons/ai';
+import { IoIosArrowDown } from 'react-icons/io';
+
+import Logo from '../../assets/Logo.svg'
 
 export default function Header() {
 
-
-  const [header, setHeader] = useState("header");
-
-  const listenScrollEvent = (event : any) => {
-    if (window.scrollY < 73) {
-      return setHeader("header");
-    } else if (window.scrollY > 70) {
-      return setHeader("header2");
-    }
-  };
-
-  useEffect(() => {
-    window.addEventListener("scroll", listenScrollEvent);
-
-    return () => window.removeEventListener("scroll", listenScrollEvent);
-  }, []);
-
-
   return (
-    <header className={header} >
-        <div className="titulo-header">
-          <h1>Food Pets</h1>
-        </div>
-        <div className="conteudo-header">
-          <h2>Quem Somos</h2>
-          <h2>mais</h2>
-          <h2>mais</h2>
-          <button className="button-header" >
-            <p>register</p>
-          </button>
-        </div>
-    </header>
+    <Headers>
+      <img src={Logo} alt="logo" />
+      <Topcs> Home </Topcs>
+      <Topcs> Sobre </Topcs>
+      <Topcs> Produtos </Topcs>
+      <Topcs> Contato </Topcs>
+      <ButtonHeader> Entre ou Cadastre-se <IoIosArrowDown style={{paddingLeft: 5}} size={20}/></ButtonHeader>
+      <AiOutlineShoppingCart size={30} style={{color: "#FF914D"}}/>
+    </Headers>
   );
 }

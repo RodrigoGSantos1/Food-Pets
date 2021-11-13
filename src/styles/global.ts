@@ -11,7 +11,7 @@ export default createGlobalStyle`
     -moz-box-sizing: content-box;
   box-sizing: border-box;
 
-  font-family: 'Manrope', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   line-height:150%;
 
   outline:none !important;
@@ -22,13 +22,12 @@ export default createGlobalStyle`
   &::-webkit-scrollbar {
     width: 9px;
     height: 9px;
-    background-color: ${colors.white[100]};
+    background-color: ${colors.gray[100]};
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: ${colors.gray[100]};
+    background-color: #FF914D;
     border-radius: 5px;
-    border: 1px solid ${colors.white[100]};
   }
 
   &::-webkit-scrollbar-thumb:hover {
