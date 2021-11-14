@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export const StyleHome = styled.div`
     width: 100%;
-    height: 200vh;
+    height: 100%;
 `
 
 export const Section1 = styled.section`
@@ -31,18 +31,18 @@ export const TextHome = styled.div`
 `
 export const Title1 = styled.h1`
     color: white;
-    font-size: 58px;
+    font-size: 2rem;
     font-weight: bold;
 `
 export const Contents1 = styled.p`
     width: 800px;
     color: white;
-    font-size: 32px;
+    font-size: 1.5rem;
     font-weight: 100;
     text-align: center;
 `
 export const ButtonSec1 = styled.button`
-    background-color: #E3725D;
+    background-color: #FF914D;
     display: flex;
     align-items: center;
 
@@ -52,5 +52,35 @@ export const ButtonSec1 = styled.button`
     padding-right: 20px;
     border-radius: 20px;
     font-weight: 400;
-    font-size: 42px;
+    font-size: 1.5rem;
+`
+export const Section2 = styled.section`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 100vh;
+    background-color: #262626;
+`
+export const ImgGatinho = styled.img`
+    width: 30%;
+`
+export const TextSec2 = styled.div`
+    margin: 50px;
+    width: 500px;
+`
+export const Sobre = styled.h1`
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+`
+export const ContSec2 = styled.p`
+    color: white;
+    font-size: 1rem;
+
+`
+export const Section3 = styled.section`
+    height: 100vh;
+    background-color: aqua;
+
 `
