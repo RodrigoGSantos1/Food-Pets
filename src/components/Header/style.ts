@@ -8,13 +8,13 @@ export const Headers = styled.header`
     align-items: center;
 
     width: 100%;
-    height: 90px;
+    height: 60px;
     background-color: white;
     border-radius: 0 0 30px 30px;
     padding: 0 30px 0 30px;
 
     img{
-        width: 75px;
+        width: 4%;
     }
 `
 
@@ -23,9 +23,11 @@ export const Topcs = styled.a`
     font-weight: bold;
     font-size: 18px;
     cursor: pointer;
+    text-decoration: none;
+    color: #000;
 `
 
-export const ButtonHeader = styled.button`
+export const ButtonHeader = styled.div`
     background-color: #FF914D;
     display: flex;
     align-items: center;
@@ -33,7 +35,12 @@ export const ButtonHeader = styled.button`
     color: white;
     padding: 10px;
     border-radius: 20px;
-    font-weight: bold;
+    /* font-weight: bold; */
     font-size: 12px;
 
+`
+
+export const Login = styled.a` 
+    font-weight: bold;
+    cursor: pointer;
 `

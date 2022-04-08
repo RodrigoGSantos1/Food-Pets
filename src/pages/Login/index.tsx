@@ -3,54 +3,51 @@ import Header from "../../components/Header";
 import { AreaForm, AreaIcon, ButtonCadastro, Style } from "./style";
 import Fundo from '../../assets/fundo-register.jpg'
 import Logo from '../../assets/Logo.svg'
-import InputCustom from "../../components/InputCustom";
-import { FormHandles } from "@unform/core";
-import RegisterValidators from "../../Validators/RegisterValidators";
 import { Form } from "@unform/web";
-import { postCadastroCliente } from "../../services/api";
-import { IRegister } from "../../types/IRegister";
+import InputCustom from "../../components/InputCustom";
+import { ILogin } from "../../types/ILogin";
+import { postLogin } from "../../services/api";
+import { FormHandles } from "@unform/core";
+import LoginValidators from "../../Validators/LoginValidators";
 
-export default function Register() {
+export default function Login() {
 
     const formRef = useRef<FormHandles>(null);
-    const [data, setData] = useState<IRegister>({});
+    const [datas, setData] = useState<ILogin>({});
 
     const handleSubmit = async () => {
-        const dadosCadastro = {
-            name: data.name,
-            email: data.email,
-            password: data.password,
-            confirmPassword: data.confirmPassword,
+        const dadosLogin = {
+            email: datas.email,
+            password: datas.password,
         };
 
-        console.log(dadosCadastro);
+        console.log(dadosLogin);
         
 
-        const errors = await RegisterValidators.validator(dadosCadastro);
+        const errors = await LoginValidators.validator(dadosLogin);
 
         if (Object.keys(errors).length === 0) {
             const response = {
-                name: data?.name,
-                email: data?.email,
-                password: data?.password,
+                email: datas.email,
+                password: datas.password,
             }
             console.log("passei");
             // @ts-ignore
-            const { status } = await postCadastroCliente(response);
+            const { status, data } = await postLogin(response);
             setTimeout(() => {
                 if (status === 200) {
                     window.location.href = '/login';
                 }
             }, 1000);
             console.log(status);
-            formRef.current?.setErrors({});
+            localStorage.setItem('@userData', JSON.stringify(data));
+            // formRef.current?.setErrors({});
         } else {
             formRef.current?.setErrors(errors);
             console.log(errors);
             
         }
     };
-
     return (
         <>
             <Style>
@@ -64,26 +61,14 @@ export default function Register() {
                         onSubmit={() => {
 
                         }}>
-                        <h1>Cadastre-se</h1>
-                        <InputCustom
-                            className="input-custom"
-                            label="Nome"
-                            name="name"
-                            onChange={(e) => {
-                                const a: any = {
-                                    ...data,
-                                    name: e.target.value,
-                                };
-                                setData(a);
-                            }}
-                        />
+                        <h1>Entrar</h1>
                         <InputCustom
                             className="input-custom"
                             label="Email"
                             name="email"
                             onChange={(e) => {
                                 const a: any = {
-                                    ...data,
+                                    ...datas,
                                     email: e.target.value,
                                 };
                                 setData(a);
@@ -96,33 +81,20 @@ export default function Register() {
                             type="password"
                             onChange={(e) => {
                                 const a: any = {
-                                    ...data,
+                                    ...datas,
                                     password: e.target.value,
                                 };
                                 setData(a);
                             }}
                         />
-                        <InputCustom
-                            className="input-custom"
-                            label="Confirme a senha"
-                            name="confirmPassword"
-                            type="password"
-                            onChange={(e) => {
-                                const a: any = {
-                                    ...data,
-                                    confirmPassword: e.target.value,
-                                };
-                                setData(a);
-                            }}
-                        />
                         <ButtonCadastro
-                            onClick={() => { handleSubmit() }}
+                            onClick={() => {handleSubmit()}}
                         >
-                            Cadastrar
+                            Entrar 
                         </ButtonCadastro>
                     </Form>
                 </AreaForm>
             </Style>
         </>
-    )
+    );
 }

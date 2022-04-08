@@ -2,13 +2,25 @@ import React from "react";
 import Header from "../../components/Header";
 import ImgHome from '../../assets/ImgHome.svg'
 import Gatinho from '../../assets/Gatinho.svg'
-import { ButtonSec1, Contents1, ContSec2, ImageHome, ImgGatinho, Section1, Section2, Section3, Sobre, StyleHome, TextHome, TextSec2, Title1 } from "./style";
+import {
+    ButtonSec1, Contents1,
+    ContSec2, ImageHome,
+    ImgGatinho, Section1,
+    Section2, Section3,
+    Sobre, StyleHome,
+    TextHome, TextSec2,
+    Title1, TitleSection3
+} from "./style";
+import { Swiper, SwiperSlide } from 'swiper/react/swiper-react'
+import { Pagination, Navigation } from "swiper";
+import "swiper/swiper.min.css";
+import "swiper/modules/pagination/pagination.min.css";
 
 export default function Home() {
     return (
         <StyleHome>
-            <Header></Header>
-            <Section1>
+            <Header/>
+            <Section1 id="home">
                 <ImageHome src={ImgHome} alt="imgHome" />
                 <TextHome>
                     <Title1>lorem ipsum</Title1>
@@ -18,7 +30,7 @@ export default function Home() {
                     <ButtonSec1>Ver Mais</ButtonSec1>
                 </TextHome>
             </Section1>
-            <Section2>
+            <Section2 id="sobre">
                 <ImgGatinho src={Gatinho} alt="gatinho" />
                 <TextSec2>
                     <Sobre>SOBRE NÓS</Sobre>
@@ -33,8 +45,28 @@ export default function Home() {
                     </ContSec2>
                 </TextSec2>
             </Section2>
-            <Section3>
-                
+            <Section3 id="produtos">
+                <TitleSection3>NOSSOS PRODUTOS</TitleSection3>
+                <Swiper
+                    slidesPerView={3}
+                    spaceBetween={30}
+                    navigation={true}
+                    modules={[Navigation, Pagination]}
+                    pagination={{
+                      clickable: true,
+                    }}
+                    className="mySwiper"
+                >
+                    <SwiperSlide>Slide 1</SwiperSlide>
+                    <SwiperSlide>Slide 2</SwiperSlide>
+                    <SwiperSlide>Slide 3</SwiperSlide>
+                    <SwiperSlide>Slide 4</SwiperSlide>
+                    <SwiperSlide>Slide 5</SwiperSlide>
+                    <SwiperSlide>Slide 6</SwiperSlide>
+                    <SwiperSlide>Slide 7</SwiperSlide>
+                    <SwiperSlide>Slide 8</SwiperSlide>
+                    <SwiperSlide>Slide 9</SwiperSlide>
+                </Swiper>
             </Section3>
         </StyleHome>
     )

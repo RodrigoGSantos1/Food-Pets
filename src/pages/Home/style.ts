@@ -81,6 +81,43 @@ export const ContSec2 = styled.p`
 `
 export const Section3 = styled.section`
     height: 100vh;
-    background-color: aqua;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
+    .swiper {
+  width: 100%;
+  height: 50%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: red;
+
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  .swiper-paginatio{
+      margin-top: 50px;
+  }
+}
+
+`
+export const TitleSection3 = styled.h1`
+    color: #00A19C;
+    width: 100vw;
+    text-align: start;
 `
