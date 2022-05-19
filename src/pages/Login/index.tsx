@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import Header from "../../components/Header";
 import { AreaForm, AreaIcon, ButtonCadastro, Style } from "./style";
 import Fundo from '../../assets/fundo-register.jpg'
-import Logo from '../../assets/Logo.svg'
+import Logo from '../../assets/Logo2.png'
 import { Form } from "@unform/web";
 import InputCustom from "../../components/InputCustom";
 import { ILogin } from "../../types/ILogin";
@@ -16,13 +16,14 @@ export default function Login() {
     const [datas, setData] = useState<ILogin>({});
 
     const handleSubmit = async () => {
+        localStorage.removeItem('@userData');
         const dadosLogin = {
             email: datas.email,
             password: datas.password,
         };
 
         console.log(dadosLogin);
-        
+
 
         const errors = await LoginValidators.validator(dadosLogin);
 
@@ -40,12 +41,18 @@ export default function Login() {
                 }
             }, 1000);
             console.log(status);
+
             localStorage.setItem('@userData', JSON.stringify(data));
+            if (data.email === "master@master.com") {
+                window.location.href = '/painel';
+            } else {
+                window.location.href = '/'
+            }
             // formRef.current?.setErrors({});
         } else {
             formRef.current?.setErrors(errors);
             console.log(errors);
-            
+
         }
     };
     return (
@@ -88,9 +95,9 @@ export default function Login() {
                             }}
                         />
                         <ButtonCadastro
-                            onClick={() => {handleSubmit()}}
+                            onClick={() => { handleSubmit() }}
                         >
-                            Entrar 
+                            Entrar
                         </ButtonCadastro>
                     </Form>
                 </AreaForm>

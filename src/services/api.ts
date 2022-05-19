@@ -15,3 +15,25 @@ export async function postLogin(data: any) {
     data,
   });
 }
+
+export async function postCadastroProduto(data: any) {
+  return await Gateway.roteador({
+    method: "post",
+    url: `painel/products`,
+    data,
+  });
+}
+
+export async function getProducts() {
+  return await Gateway.roteador({
+    method: "get",
+    url: `products`,
+  });
+}
+
+export async function getClients() {
+  return await Gateway.roteador({
+    method: "get",
+    url: `users`,
+  });
+}

@@ -43,4 +43,16 @@ export const ButtonHeader = styled.div`
 export const Login = styled.a` 
     font-weight: bold;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `
+
+export const Name = styled.p`
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FF914D;
+` 

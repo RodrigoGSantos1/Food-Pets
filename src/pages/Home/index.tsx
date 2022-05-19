@@ -1,25 +1,47 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../../components/Header";
 import ImgHome from '../../assets/ImgHome.svg'
 import Gatinho from '../../assets/Gatinho.svg'
+import Logo from '../../assets/Logo2.png'
 import {
+    AreaContetCard,
+    ButtonCard,
     ButtonSec1, Contents1,
-    ContSec2, ImageHome,
-    ImgGatinho, Section1,
+    ContetCard,
+    ContSec2, ContSection4, ImageHome,
+    ImgGatinho, LogoSection4, Section1,
     Section2, Section3,
+    Section4,
+    Separa,
     Sobre, StyleHome,
+    SwiperStyle,
     TextHome, TextSec2,
-    Title1, TitleSection3
+    Title1, TitleSection3, Topcs
 } from "./style";
-import { Swiper, SwiperSlide } from 'swiper/react/swiper-react'
-import { Pagination, Navigation } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react/swiper-react";
+import { Navigation } from "swiper";
 import "swiper/swiper.min.css";
-import "swiper/modules/pagination/pagination.min.css";
+import "swiper/modules/navigation/navigation.min.css";
+import { getProducts } from "../../services/api";
 
 export default function Home() {
+
+    const [products, setProducts] = useState([])
+
+    useEffect(() => {
+        hundleProducts()
+    }, [])
+
+    const hundleProducts = async () => {
+        //@ts-ignore
+        const { status, data } = await getProducts()
+        setProducts(data)
+
+    }
+
     return (
         <StyleHome>
-            <Header/>
+            <Header />
             <Section1 id="home">
                 <ImageHome src={ImgHome} alt="imgHome" />
                 <TextHome>
@@ -47,27 +69,50 @@ export default function Home() {
             </Section2>
             <Section3 id="produtos">
                 <TitleSection3>NOSSOS PRODUTOS</TitleSection3>
-                <Swiper
-                    slidesPerView={3}
-                    spaceBetween={30}
-                    navigation={true}
-                    modules={[Navigation, Pagination]}
-                    pagination={{
-                      clickable: true,
-                    }}
-                    className="mySwiper"
-                >
-                    <SwiperSlide>Slide 1</SwiperSlide>
-                    <SwiperSlide>Slide 2</SwiperSlide>
-                    <SwiperSlide>Slide 3</SwiperSlide>
-                    <SwiperSlide>Slide 4</SwiperSlide>
-                    <SwiperSlide>Slide 5</SwiperSlide>
-                    <SwiperSlide>Slide 6</SwiperSlide>
-                    <SwiperSlide>Slide 7</SwiperSlide>
-                    <SwiperSlide>Slide 8</SwiperSlide>
-                    <SwiperSlide>Slide 9</SwiperSlide>
-                </Swiper>
+                <SwiperStyle>
+                    <Swiper
+                        slidesPerView={3}
+                        spaceBetween={30}
+                        navigation={true}
+                        modules={[Navigation]}
+                        pagination={{
+                            clickable: true,
+                        }}
+                        className="mySwiper"
+                    >
+                        {products.map((obj: any, i: any) => {
+                            return (
+                                <SwiperSlide
+                                    className={"swiper-slide"}
+                                >
+                                    <AreaContetCard>
+                                        <img src={Gatinho} alt="gatinho" />
+
+                                        <ButtonCard>Comprar</ButtonCard>
+                                    </AreaContetCard>
+                                </SwiperSlide>
+                            );
+                        })}
+                    </Swiper>
+                </SwiperStyle>
             </Section3>
+            <Section4 id="contato">
+                <LogoSection4>
+                    <img src={Logo} alt="Logo" />
+                </LogoSection4>
+                <Separa />
+                <ContSection4>
+                    <Topcs href="/#home"> Home </Topcs>
+                    <Topcs href="/#sobre"> Sobre </Topcs>
+                    <Topcs href="/#produtos"> Produtos </Topcs>
+                    <Topcs onClick={() => {
+                        window.location.href = '/login';
+                    }}> Login </Topcs>
+                    <Topcs onClick={() => {
+                        window.location.href = '/register';
+                    }}> Cadastro </Topcs>
+                </ContSection4>
+            </Section4>
         </StyleHome>
     )
 }

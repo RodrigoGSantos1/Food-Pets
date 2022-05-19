@@ -35,45 +35,6 @@ export default createGlobalStyle`
   }
 }
 
-:root{
-    --white: ${colors.white[100]};
-
-    --primary1: ${colors.custom.primary1};
-    --primary2: ${colors.custom.primary2};
-    --primary3: ${colors.custom.primary3};
-
-    --secondary1: ${colors.custom.secondary1};
-    --secondary2: ${colors.custom.secondary2};
-    --secondary3: ${colors.custom.secondary3};
-
-    --disabled1: ${colors.custom.disabled1};
-    --disabled2: ${colors.custom.disabled2};
-    --disabled3: ${colors.custom.disabled3};
-
-    --success1: ${colors.custom.success1};
-    --success2: ${colors.custom.success2};
-    --success3: ${colors.custom.success3};
-
-    --info1: ${colors.custom.info1};
-    --info2: ${colors.custom.info2};
-    --info3: ${colors.custom.info3};
-
-    --warning1: ${colors.custom.warning1};
-    --warning2: ${colors.custom.warning2};
-    --warning3: ${colors.custom.warning3};
-
-    --danger1: ${colors.custom.danger1};
-    --danger2: ${colors.custom.danger2};
-    --danger3: ${colors.custom.danger3};
-
-    /* table */
-    --row: ${colors.table.row};
-    --rowEven: ${colors.table.rowEven};
-    --rowHover: ${colors.table.hover};
-    --rowSelected: ${colors.table.selected};
-
-
-}
 
 h1,h2,h3,h4,h5,h6,b{
   font-family: 'Manrope', sans-serif;

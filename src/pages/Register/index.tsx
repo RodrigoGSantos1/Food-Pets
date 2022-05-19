@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import Header from "../../components/Header";
 import { AreaForm, AreaIcon, ButtonCadastro, Style } from "./style";
 import Fundo from '../../assets/fundo-register.jpg'
-import Logo from '../../assets/Logo.svg'
+import Logo from '../../assets/Logo2.png'
 import InputCustom from "../../components/InputCustom";
 import { FormHandles } from "@unform/core";
 import RegisterValidators from "../../Validators/RegisterValidators";
@@ -24,13 +24,14 @@ export default function Register() {
         };
 
         console.log(dadosCadastro);
-        
+
 
         const errors = await RegisterValidators.validator(dadosCadastro);
 
         if (Object.keys(errors).length === 0) {
             const response = {
                 name: data?.name,
+                surname: data?.surname,                
                 email: data?.email,
                 password: data?.password,
             }
@@ -47,7 +48,7 @@ export default function Register() {
         } else {
             formRef.current?.setErrors(errors);
             console.log(errors);
-            
+
         }
     };
 
@@ -73,6 +74,18 @@ export default function Register() {
                                 const a: any = {
                                     ...data,
                                     name: e.target.value,
+                                };
+                                setData(a);
+                            }}
+                        />
+                        <InputCustom
+                            className="input-custom"
+                            label="Surname"
+                            name="surname"
+                            onChange={(e) => {
+                                const a: any = {
+                                    ...data,
+                                    surname: e.target.value,
                                 };
                                 setData(a);
                             }}

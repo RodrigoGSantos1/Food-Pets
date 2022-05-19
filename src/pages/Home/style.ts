@@ -86,38 +86,160 @@ export const Section3 = styled.section`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+`
+export const AreaContetCard = styled.div`  
+    width: 100%;
+    height: 100%;
+    /* background-color: yellow; */
+    border-radius: 10px 10px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 20px;
+    position: relative;
+
+    img{
+        position: absolute;
+        top: 0;
+        width: 80%;
+        border-radius: 10px;
+
+        :hover{
+            width: 85%;
+        }
+    }
+
+`
+export const ButtonCard = styled.button`
+    position: absolute;
+    bottom: 0;
+    background-color: #FF914D;
+    display: flex;
+    align-items: center;
+
+    color: white;
+    margin-top: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 20px;
+    font-weight: 400;
+    font-size: 1.5rem;
+`
+export const ContetCard = styled.p`
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.8rem;
+    line-height: 19px;
+    margin-bottom: 5px;
+    margin-left: 10px;
+    color: #FFFFFF;
+
+`
+
+export const SwiperStyle = styled.div`
+    width: 100vw;
+    height: 70vh;
+
 
     .swiper {
-  width: 100%;
-  height: 50%;
-}
+        width: 95%;
+        height: 80vh;
+        padding: 10px;
+        display: flex;
+        justify-content:center ;
+        align-items: center;
+    }
 
-.swiper-slide {
-  text-align: center;
-  font-size: 18px;
-  background: #fff;
+    .swiper-wrapper {
+        align-items: flex-end;
+    }
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: red;
+    .swiper-slide {
+        /* box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25); */
+        border-radius: 20px 20px 20px 20px;
+        /* cursor: pointer; */
+        display: flex;
+        align-items: flex-end;
+        height: 80%;
+        margin-right: 30px;
+        position: relative;
+    }
 
-}
+    .swiper-button-prev{
+        background-color: #fff;
+        width: 40px !important;
+        height: 40px !important;
+        border-radius: 50%;
+        width: auto;
+        height: auto;
+        ::after{
+            color: #000;
+            font-size: 18px;
+        }
+    }
+    .swiper-button-next{
+        background-color: #fff;
+        width: 40px !important;
+        height: 40px !important;
+        border-radius: 50%;
+        ::after{
+            color: #000;
+            font-size: 18px;
+        }
 
-.swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+    }
 
-  .swiper-paginatio{
-      margin-top: 50px;
-  }
-}
-
+    /* .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    } */
 `
 export const TitleSection3 = styled.h1`
     color: #00A19C;
     width: 100vw;
     text-align: start;
+    font-weight: 900;
+`
+
+export const Section4 = styled.section`
+    height: 25vh;
+    width: 100vw;
+    background-color: #262626;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+`
+export const LogoSection4 = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    /* background-color: red; */
+
+    img{
+        width: 70%;
+    }
+`
+export const Separa = styled.div`
+    width: 0.5px;
+    height: 80%;
+    background-color: #fff;
+`
+
+export const ContSection4 = styled.div`
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+`
+export const Topcs = styled.a`
+    padding: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #fff;
 `
